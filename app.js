@@ -33,19 +33,14 @@ const getComputerChoice = () => {
   }
 };
 
-const getWinner = (comChoice, plChoice) => {
-  if (comChoice === plChoice) {
-    return RESULT_DRAW;
-  } else if (
-    (comChoice === ROCK && plChoice === PAPER) ||
-    (comChoice === PAPER && plChoice === SCISSORS) ||
-    (comChoice === SCISSORS && plChoice === ROCK)
-  ) {
-    return RESULT_PLAYER_WINS;
-  } else {
-    return RESULT_COMPUTER_WINS;
-  }
-};
+const getWinner = (comChoice, plChoice) =>
+  comChoice === plChoice
+    ? RESULT_DRAW
+    : (comChoice === ROCK && plChoice === PAPER) ||
+      (comChoice === PAPER && plChoice === SCISSORS) ||
+      (comChoice === SCISSORS && plChoice === ROCK)
+    ? RESULT_PLAYER_WINS
+    : RESULT_COMPUTER_WINS;
 
 startGameBtn.addEventListener("click", () => {
   if (gameIsRunning) {
